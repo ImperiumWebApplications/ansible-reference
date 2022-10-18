@@ -1,0 +1,16 @@
+- name: Understaning precendence of variables
+  hosts: all
+  become: yes
+  vars:
+    USRNM: playuser
+    COMM: Variable defined within the playbook 
+  tasks:
+    - name: Create a user
+      user:
+        name: "{{USRNM}}"
+        comment: "{{COMM}}"
+      register: USROUT
+    - debug:
+        var: USROUT.name
+    - debug:
+        var: USROUT.comment
