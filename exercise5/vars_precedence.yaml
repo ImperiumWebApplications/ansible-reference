@@ -1,6 +1,7 @@
 - name: Understaning precendence of variables
   hosts: all
   become: yes
+  gather_facts: False
   vars:
     USRNM: playuser
     COMM: Variable defined within the playbook 
